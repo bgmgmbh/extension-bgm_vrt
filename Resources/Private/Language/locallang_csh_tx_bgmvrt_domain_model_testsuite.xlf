@@ -4,13 +4,13 @@
 		  product-name="bgm_vrt">
 		<header/>
 		<body>
-			<trans-unit id="tx_bgmvrt_domain_model_testsuite" xml:space="preserve">
+			<trans-unit id="tx_bgmvrt_domain_model_testsuite.description" xml:space="preserve">
 				<source>Testsuite</source>
 			</trans-unit>
-			<trans-unit id="tx_bgmvrt_domain_model_testsuite.title" xml:space="preserve">
+			<trans-unit id="title.description" xml:space="preserve">
 				<source>title</source>
 			</trans-unit>
-			<trans-unit id="tx_bgmvrt_domain_model_testsuite.command" xml:space="preserve">
+			<trans-unit id="command.description" xml:space="preserve">
 				<source>command</source>
 			</trans-unit>
 		</body>
