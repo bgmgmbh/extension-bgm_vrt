@@ -1,12 +1,14 @@
 {
   "autoload": {
     "psr-4": {
-      "BGM\\BgmVrt\\": "Classes/"
+      "BGM\\BgmVrt\\": "Classes/",
+      "phpseclib\\": "Resources/Lib/phpseclib/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "BGM\\BgmVrt\\": "Classes/"
+      "BGM\\BgmVrt\\": "Classes/",
+      "phpseclib\\": "Resources/Lib/phpseclib/"
     }
   }
 }

@@ -1,6 +1,11 @@
 module.tx_bgmvrt {
 	settings {
-
+		phantomcss {
+			pathToLocalPrivateKey = /data/projects/bgm/Development/id_rsa_syncserver
+			username = syncserver
+			host = localhost
+			port = 22
+		}
 	}
 	persistence {
 		storagePid = {$module.tx_bgmvrt.persistence.storagePid}

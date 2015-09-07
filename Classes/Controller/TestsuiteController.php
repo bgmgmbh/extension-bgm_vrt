@@ -52,6 +52,9 @@ class TestsuiteController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionContro
 	 */
 	public function showAction(\BGM\BgmVrt\Domain\Model\Testsuite $testsuite) {
 		$this->view->assign('testsuite', $testsuite);
+
+		/** @var \BGM\BgmVrt\Service\SshService $sshService */
+		$sshService = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('BGM\\BgmVrt\\Service\\SshService', $this->settings['phantomcss']['pathToLocalPrivateKey'], $this->settings['phantomcss']['username'], $this->settings['phantomcss']['host'], $this->settings['phantomcss']['port']);
 	}
 }
 
