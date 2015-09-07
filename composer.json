@@ -1,12 +1,12 @@
 {
   "autoload": {
     "psr-4": {
-      "bgm\\BgmVrt\\": "Classes/"
+      "BGM\\BgmVrt\\": "Classes/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "bgm\\BgmVrt\\": "Classes/"
+      "BGM\\BgmVrt\\": "Classes/"
     }
   }
 }
