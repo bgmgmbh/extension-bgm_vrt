@@ -1,0 +1,17 @@
+module.tx_bgmvrt {
+	settings {
+
+	}
+	view {
+		# cat=module.tx_bgmvrt/file; type=string; label=Path to template root (BE)
+		templateRootPath = EXT:bgm_vrt/Resources/Private/Backend/Templates/
+		# cat=module.tx_bgmvrt/file; type=string; label=Path to template partials (BE)
+		partialRootPath = EXT:bgm_vrt/Resources/Private/Backend/Partials/
+		# cat=module.tx_bgmvrt/file; type=string; label=Path to template layouts (BE)
+		layoutRootPath = EXT:bgm_vrt/Resources/Private/Backend/Layouts/
+	}
+	persistence {
+		# cat=module.bgmvrt//a; type=int+; label=Default storage PID
+		storagePid = 0
+	}
+}

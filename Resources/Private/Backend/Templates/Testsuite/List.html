@@ -1,0 +1,17 @@
+<f:layout name="Default"/>
+
+<f:section name="docHeaderButtonsleft">
+</f:section>
+
+<f:section name="content">
+	<h2>
+		<f:translate key="module.list.title"/>
+	</h2>
+	<ul>
+		<f:for each="{testsuites}" as="testsuite">
+			<li>
+				<f:link.action action="show" arguments="{testsuite:testsuite}">{testsuite.title}</f:link.action>
+			</li>
+		</f:for>
+	</ul>
+</f:section>

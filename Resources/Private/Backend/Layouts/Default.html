@@ -1,0 +1,31 @@
+<f:be.container>
+	<div class="typo3-fullDoc tx_bgmvrt">
+		<div id="typo3-docheader">
+			<div class="typo3-docheader-functions">
+				<div class="left">
+					<div class="docheader-csh"></div>
+					<div class="docheader-funcmenu"></div>
+				</div>
+				<div class="right">
+				</div>
+			</div>
+			<div class="typo3-docheader-buttons">
+				<div class="left">
+					<f:render section="docHeaderButtonsleft"/>
+				</div>
+				<div class="right">
+					<f:be.buttons.shortcut/>
+				</div>
+			</div>
+		</div>
+		<div id="typo3-docbody">
+			<div id="typo3-inner-docbody">
+				<h1>
+					<f:translate key="module.title"/>
+				</h1>
+				<f:flashMessages renderMode="div"/>
+				<f:render section="content"/>
+			</div>
+		</div>
+	</div>
+</f:be.container>

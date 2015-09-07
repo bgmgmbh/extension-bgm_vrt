@@ -1,0 +1,13 @@
+module.tx_bgmvrt {
+	settings {
+
+	}
+	persistence {
+		storagePid = {$module.tx_bgmvrt.persistence.storagePid}
+	}
+	view {
+		templateRootPaths.10 = {$module.tx_bgmvrt.view.templateRootPath}
+		partialRootPaths.10 = {$module.tx_bgmvrt.view.partialRootPath}
+		layoutRootPaths.10 = {$module.tx_bgmvrt.view.layoutRootPath}
+	}
+}

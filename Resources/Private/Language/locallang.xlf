@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2015-04-28T15:46:51Z"
+		  product-name="bgm_vrt">
+		<header/>
+		<body>
+			<trans-unit id="module.title" xml:space="preserve">
+				<source>Visual Regression Testing</source>
+			</trans-unit>
+			<trans-unit id="module.list.title" xml:space="preserve">
+				<source>Testsuites</source>
+			</trans-unit>
+			<trans-unit id="module.show.title" xml:space="preserve">
+				<source>Testsuite "%1$s"</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
