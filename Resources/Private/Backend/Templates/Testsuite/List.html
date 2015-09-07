@@ -5,13 +5,21 @@
 
 <f:section name="content">
 	<h2>
-		<f:translate key="module.list.title"/>
+		<f:translate key="module.testsuite.list.title"/>
 	</h2>
-	<ul>
-		<f:for each="{testsuites}" as="testsuite">
-			<li>
-				<f:link.action action="show" arguments="{testsuite:testsuite}">{testsuite.title}</f:link.action>
-			</li>
-		</f:for>
-	</ul>
+	<f:for each="{testsuites}" as="testsuite">
+		<h3>
+			<f:link.action action="show" arguments="{testsuite:testsuite}">{testsuite.title}</f:link.action>
+		</h3>
+		<f:if condition="{testsuite.testruns}">
+			<ul>
+				<f:for each="{testsuite.testruns}" as="testrun">
+					<li>
+						<f:translate key="module.testsuite.show.testrun"
+									 arguments="{1:testrun.title,2:'{testrun.executedComparisons.0}',3:'{testrun.executedComparisons.1}',4:'{testrun.newComparisons->f:count()}',5:'{testrun.passedComparisons->f:count()}',6:'{testrun.failedComparisons->f:count()}',7:'{testrun.timedoudComparisons->f:count()}'}"/>
+					</li>
+				</f:for>
+			</ul>
+		</f:if>
+	</f:for>
 </f:section>

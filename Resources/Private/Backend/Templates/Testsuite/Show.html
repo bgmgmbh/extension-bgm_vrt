@@ -5,7 +5,31 @@
 
 <f:section name="content">
 	<h2>
-		<f:translate key="module.show.title" arguments="{1:testsuite.title}"/>
+		<f:translate key="module.testsuite.show.title" arguments="{1:testsuite.title}"/>
 	</h2>
 	<p>{testsuite.command}</p>
+	<f:for each="{testsuite.testruns}" as="testrun">
+		<h3>
+			<f:translate key="module.testsuite.show.testrun"
+						 arguments="{1:testrun.title,2:'{testrun.executedComparisons.0}',3:'{testrun.executedComparisons.1}'}"/>
+		</h3>
+		<ul>
+			<li>
+				<f:translate key="module.testsuite.show.newComparisons"
+							 arguments="{1:'{testrun.newComparisons->f:count()}'}"/>
+			</li>
+			<li>
+				<f:translate key="module.testsuite.show.passedComparisons"
+							 arguments="{1:'{testrun.passedComparisons->f:count()}'}"/>
+			</li>
+			<li>
+				<f:translate key="module.testsuite.show.failedComparisons"
+							 arguments="{1:'{testrun.failedComparisons->f:count()}'}"/>
+			</li>
+			<li>
+				<f:translate key="module.testsuite.show.timedoutComparisons"
+							 arguments="{1:'{testrun.timedoutComparisons->f:count()}'}"/>
+			</li>
+		</ul>
+	</f:for>
 </f:section>

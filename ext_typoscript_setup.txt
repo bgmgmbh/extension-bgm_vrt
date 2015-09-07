@@ -5,6 +5,7 @@ module.tx_bgmvrt {
 			username = syncserver
 			host = localhost
 			port = 22
+			testsRootDir = /data/projects/bgm/phantomcss/tests
 		}
 	}
 	persistence {
