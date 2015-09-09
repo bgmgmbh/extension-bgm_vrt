@@ -11,28 +11,28 @@
 				<source>Testsuites</source>
 			</trans-unit>
 			<trans-unit id="module.testsuite.list.testrun" xml:space="preserve">
-				<source>%1$s (Executed: %2$s of %3$s URLs, New: %4$s, Passed: %5$s, Failed: %6$s, Timedout: %7$s)</source>
+				<source>%1$s (Executed: %2$d of %3$d URLs, New: %4$d, Passed: %5$d, Failed: %6$d, Timedout: %7$d)</source>
 			</trans-unit>
 			<trans-unit id="module.testsuite.show.title" xml:space="preserve">
 				<source>Testsuite "%1$s"</source>
 			</trans-unit>
 			<trans-unit id="module.testsuite.show.testrun" xml:space="preserve">
-				<source>%1$s (Executed: %2$s of %3$s URLs)</source>
+				<source>%1$s (Executed: %2$d of %3$d URLs)</source>
 			</trans-unit>
 			<trans-unit id="module.testsuite.show.executedComparisons" xml:space="preserve">
-				<source>Executed comparisons: %1$s</source>
+				<source>Executed comparisons: %1$d</source>
 			</trans-unit>
 			<trans-unit id="module.testsuite.show.newComparisons" xml:space="preserve">
-				<source>New comparisons: %1$s</source>
+				<source>New comparisons: %1$d</source>
 			</trans-unit>
 			<trans-unit id="module.testsuite.show.passedComparisons" xml:space="preserve">
-				<source>Passed comparisons: %1$s</source>
+				<source>Passed comparisons: %1$d</source>
 			</trans-unit>
 			<trans-unit id="module.testsuite.show.failedComparisons" xml:space="preserve">
-				<source>Failed comparisons: %1$s</source>
+				<source>Failed comparisons: %1$d</source>
 			</trans-unit>
 			<trans-unit id="module.testsuite.show.timedoutComparisons" xml:space="preserve">
-				<source>Timedout comparisons: %1$s</source>
+				<source>Timedout comparisons: %1$d</source>
 			</trans-unit>
 		</body>
 	</file>
