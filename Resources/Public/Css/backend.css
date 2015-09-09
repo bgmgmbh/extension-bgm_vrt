@@ -13,27 +13,17 @@
 }
 
 .tx_bgmvrt .comparisons ul .comparisonImages .comparisonImage {
-	background-repeat: no-repeat;
-	background-attachment: scroll;
-	background-size: contain;
-	background-position: center top;
-	width: 500px;
-	height: 500px;
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	overflow: hidden;
-}
-
-.tx_bgmvrt .comparisons ul .comparisonImages .comparisonImage.comparisonFailedImage {
-	position: relative;
 	width: 510px;
 	height: 530px;
 	border: 5px solid #eeeeee;
 	border-top: 25px solid #eeeeee;
 	margin: 10px;
 	float: left;
+	background-repeat: no-repeat;
+	background-attachment: scroll;
+	background-size: contain;
+	background-position: center top;
+	overflow: hidden;
 }
 
 .tx_bgmvrt .comparisons ul .comparisonImages .split-pane {
@@ -66,17 +56,27 @@
 	width: 50%;
 }
 
-.tx_bgmvrt .comparisons ul .comparisonImages .split-pane .split-pane-component p {
+.tx_bgmvrt .comparisons ul .comparisonImages .split-pane p {
 	white-space: nowrap;
 	background-color: #eeeeee;
 }
 
-.tx_bgmvrt .comparisons ul .comparisonImages .split-pane .left-component div {
+.tx_bgmvrt .comparisons ul .comparisonImages .split-pane .split-pane-component .comparisonImage {
+	width: 500px;
+	height: 500px;
+	border: none;
+	margin: 0;
+	float: none;
+	position: absolute;
+	bottom: 0;
+}
+
+.tx_bgmvrt .comparisons ul .comparisonImages .split-pane .left-component .comparisonImage {
 	left: 0;
 	right: auto;
 }
 
-.tx_bgmvrt .comparisons ul .comparisonImages .split-pane .right-component div {
+.tx_bgmvrt .comparisons ul .comparisonImages .split-pane .right-component .comparisonImage {
 	left: auto;
 	right: 0;
 }
