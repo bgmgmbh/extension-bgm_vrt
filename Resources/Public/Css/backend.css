@@ -12,48 +12,7 @@
 	display: none;
 }
 
-.tx_bgmvrt .comparisons ul .comparisonImages img {
-	max-width: 500px;
-	max-height: 500px;
-	margin: 10px;
-	border: 5px solid #eeeeee;
-}
-
-.tx_bgmvrt .split-pane {
-	width: 510px;
-	height: 530px;
-	border: 5px solid #eeeeee;
-	float: left;
-	margin: 10px;
-}
-
-.tx_bgmvrt .split-pane .split-pane-divider {
-	background: #eeeeee;
-}
-
-.tx_bgmvrt .split-pane .divider-vertical {
-	right: 50%;
-	width: 5px;
-}
-
-.tx_bgmvrt .split-pane .split-pane-component {
-	overflow: hidden;
-}
-
-.tx_bgmvrt .split-pane .left-component {
-	right: 50%;
-	margin-right: 5px;
-}
-
-.tx_bgmvrt .split-pane .right-component {
-	width: 50%;
-}
-
-.tx_bgmvrt .split-pane .split-pane-component p {
-	white-space: nowrap;
-	background-color: #eeeeee;
-}
-.tx_bgmvrt .split-pane .split-pane-component div {
+.tx_bgmvrt .comparisons ul .comparisonImages .comparisonImage {
 	background-repeat: no-repeat;
 	background-attachment: scroll;
 	background-size: contain;
@@ -67,12 +26,57 @@
 	overflow: hidden;
 }
 
-.tx_bgmvrt .split-pane .left-component div {
+.tx_bgmvrt .comparisons ul .comparisonImages .comparisonImage.comparisonFailedImage {
+	position: relative;
+	width: 510px;
+	height: 530px;
+	border: 5px solid #eeeeee;
+	border-top: 25px solid #eeeeee;
+	margin: 10px;
+	float: left;
+}
+
+.tx_bgmvrt .comparisons ul .comparisonImages .split-pane {
+	width: 510px;
+	height: 530px;
+	border: 5px solid #eeeeee;
+	float: left;
+	margin: 10px;
+}
+
+.tx_bgmvrt .comparisons ul .comparisonImages .split-pane .split-pane-divider {
+	background: #eeeeee;
+}
+
+.tx_bgmvrt .comparisons ul .comparisonImages .split-pane .divider-vertical {
+	right: 50%;
+	width: 5px;
+}
+
+.tx_bgmvrt .comparisons ul .comparisonImages .split-pane .split-pane-component {
+	overflow: hidden;
+}
+
+.tx_bgmvrt .comparisons ul .comparisonImages .split-pane .left-component {
+	right: 50%;
+	margin-right: 5px;
+}
+
+.tx_bgmvrt .comparisons ul .comparisonImages .split-pane .right-component {
+	width: 50%;
+}
+
+.tx_bgmvrt .comparisons ul .comparisonImages .split-pane .split-pane-component p {
+	white-space: nowrap;
+	background-color: #eeeeee;
+}
+
+.tx_bgmvrt .comparisons ul .comparisonImages .split-pane .left-component div {
 	left: 0;
 	right: auto;
 }
 
-.tx_bgmvrt .split-pane .right-component div {
+.tx_bgmvrt .comparisons ul .comparisonImages .split-pane .right-component div {
 	left: auto;
 	right: 0;
 }

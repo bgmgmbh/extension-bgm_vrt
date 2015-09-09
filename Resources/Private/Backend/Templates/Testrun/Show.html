@@ -29,8 +29,10 @@
 						</span>
 
 						<div class="comparisonImage">
-							<img data-src="{bgm:uri.image(src:'{newComparison}',baseUrl:'{settings.phantomcss.baseUrl}',testsRootDir:'{settings.phantomcss.testsRootDir}')}"
-								 alt="" class="comparisonBaseImage"/>
+							<div class="comparisonImage">
+								<img data-src="{bgm:uri.image(src:'{newComparison}',baseUrl:'{settings.phantomcss.baseUrl}',testsRootDir:'{settings.phantomcss.testsRootDir}')}"
+									 alt="" class="comparisonBaseImage"/>
+							</div>
 						</div>
 					</li>
 				</f:for>
@@ -52,8 +54,9 @@
 						</span>
 
 						<div class="comparisonImages">
-							<img data-src="{bgm:uri.image(src:'{passedComparison}',baseUrl:'{settings.phantomcss.baseUrl}',testsRootDir:'{settings.phantomcss.testsRootDir}')}"
-								 alt="" class="comparisonBaseImage"/>
+							<div data-src="{bgm:uri.image(src:'{passedComparison}',baseUrl:'{settings.phantomcss.baseUrl}',testsRootDir:'{settings.phantomcss.testsRootDir}')}"
+								 class="comparisonImage comparisonBaseImage">
+							</div>
 						</div>
 					</li>
 				</f:for>
@@ -78,16 +81,19 @@
 							<div class="split-pane vertical-percent">
 								<div class="split-pane-component left-component">
 									<p>Comparison Base</p>
-									<div data-src="{bgm:uri.image(src:'{failedComparison}',baseUrl:'{settings.phantomcss.baseUrl}',testsRootDir:'{settings.phantomcss.testsRootDir}')}"></div>
+									<div data-src="{bgm:uri.image(src:'{failedComparison}',baseUrl:'{settings.phantomcss.baseUrl}',testsRootDir:'{settings.phantomcss.testsRootDir}')}"
+										 class="comparisonImage comparisonBaseImage"></div>
 								</div>
 								<div class="split-pane-divider divider-vertical"></div>
 								<div class="split-pane-component right-component">
 									<p>Compared with</p>
-									<div data-src="{bgm:uri.image(src:'{failedComparison}',baseUrl:'{settings.phantomcss.baseUrl}',testsRootDir:'{settings.phantomcss.testsRootDir}',type:'diff')}"></div>
+									<div data-src="{bgm:uri.image(src:'{failedComparison}',baseUrl:'{settings.phantomcss.baseUrl}',testsRootDir:'{settings.phantomcss.testsRootDir}',type:'diff')}"
+										 class="comparisonImage comparisonDiffImage"></div>
 								</div>
 							</div>
-							<img data-src="{bgm:uri.image(src:'{failedComparison}',baseUrl:'{settings.phantomcss.baseUrl}',testsRootDir:'{settings.phantomcss.testsRootDir}',type:'fail')}"
-								 alt="" class="comparisonFailedImage"/>
+							<div data-src="{bgm:uri.image(src:'{failedComparison}',baseUrl:'{settings.phantomcss.baseUrl}',testsRootDir:'{settings.phantomcss.testsRootDir}',type:'fail')}"
+								 class="comparisonImage comparisonFailedImage">
+							</div>
 							<div class="clear"></div>
 						</div>
 					</li>
@@ -110,8 +116,9 @@
 						</span>
 
 						<div class="comparisonImages">
-							<img data-src="{bgm:uri.image(src:'{timedoutComparison}',baseUrl:'{settings.phantomcss.baseUrl}',testsRootDir:'{settings.phantomcss.testsRootDir}')}"
-								 alt="" class="comparisonBaseImage"/>
+							<div data-src="{bgm:uri.image(src:'{timedoutComparison}',baseUrl:'{settings.phantomcss.baseUrl}',testsRootDir:'{settings.phantomcss.testsRootDir}')}"
+								 class="comparisonImage comparisonBaseImage">
+							</div>
 						</div>
 					</li>
 				</f:for>

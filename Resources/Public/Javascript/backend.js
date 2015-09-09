@@ -9,7 +9,7 @@
 					$(this).attr('src', $(this).attr('data-src'));
 				}
 			});
-			$(this).parent('li').find('.comparisonImages .split-pane-component div').each(function () {
+			$(this).parent('li').find('.comparisonImages .comparisonImage').each(function () {
 				if($(this).css('backgroundImage') != 'url(' + $(this).attr('data-src') + ')'){
 					$(this).css('backgroundImage', 'url(' + $(this).attr('data-src') + ')');
 				}
