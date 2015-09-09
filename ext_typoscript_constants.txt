@@ -1,6 +1,19 @@
 module.tx_bgmvrt {
 	settings {
-
+		phantomcss {
+			# cat=module.tx_bgmvrt/phantomcss; type=string; label=path to private ssh key
+			pathToLocalPrivateKey =
+			# cat=module.tx_bgmvrt/phantomcss; type=string; label=ssh username on the phantomcss server
+			username =
+			# cat=module.tx_bgmvrt/phantomcss; type=string; label=host of the phantomcss server
+			host =
+			# cat=module.tx_bgmvrt/phantomcss; type=string; label=port of the phantomcss server
+			port =
+			# cat=module.tx_bgmvrt/phantomcss; type=string; label=absolute path to directory with tests on the phantomcss server, f.e. /absolute/path/to/phantomcss/tests
+			testsRootDir =
+			# cat=module.tx_bgmvrt/phantomcss; type=string; label=base url of the phantomcss server, f.e. http://my.phantomcss.de
+			baseUrl =
+		}
 	}
 	view {
 		# cat=module.tx_bgmvrt/file; type=string; label=Path to template root (BE)

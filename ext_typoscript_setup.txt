@@ -1,13 +1,12 @@
 module.tx_bgmvrt {
 	settings {
 		phantomcss {
-			pathToLocalPrivateKey = /data/projects/bgm/Development/id_rsa_syncserver
-			username = syncserver
-			host = localhost
-			port = 22
-			testsRootDir = /data/projects/bgm/phantomcss/tests
-
-			baseUrl = http://phantomcss.bgm.projects.localhost
+			pathToLocalPrivateKey = {$module.tx_bgmvrt.settings.phantomcss.pathToLocalPrivateKey}
+			username = {$module.tx_bgmvrt.settings.phantomcss.username}
+			host = {$module.tx_bgmvrt.settings.phantomcss.host}
+			port = {$module.tx_bgmvrt.settings.phantomcss.port}
+			testsRootDir = {$module.tx_bgmvrt.settings.phantomcss.testsRootDir}
+			baseUrl = {$module.tx_bgmvrt.settings.phantomcss.baseUrl}
 		}
 	}
 	persistence {
