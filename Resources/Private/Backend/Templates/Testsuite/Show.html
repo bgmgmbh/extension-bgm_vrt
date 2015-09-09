@@ -10,8 +10,11 @@
 	<p>{testsuite.command}</p>
 	<f:for each="{testsuite.testruns}" as="testrun">
 		<h3>
-			<f:translate key="module.testsuite.show.testrun"
+			<f:link.action action="show" controller="Testrun"
+						   arguments="{testsuite:testsuite,testrunTitle:'{testrun.title}'}">
+				<f:translate key="module.testsuite.show.testrun"
 						 arguments="{1:testrun.title,2:'{testrun.executedComparisons.0}',3:'{testrun.executedComparisons.1}'}"/>
+			</f:link.action>
 		</h3>
 		<ul>
 			<li>

@@ -6,6 +6,8 @@ module.tx_bgmvrt {
 			host = localhost
 			port = 22
 			testsRootDir = /data/projects/bgm/phantomcss/tests
+
+			baseUrl = http://phantomcss.bgm.projects.localhost
 		}
 	}
 	persistence {

@@ -1,0 +1,121 @@
+{namespace bgm=BGM\BgmVrt\ViewHelpers}
+<f:layout name="Default"/>
+
+<f:section name="docHeaderButtonsleft">
+</f:section>
+
+<f:section name="content">
+	<h2>
+		<f:translate key="module.testsuite.show.title" arguments="{1:testrun.testsuite.title}"/>
+	</h2>
+	<p>{testrun.testsuite.command}</p>
+
+	<h3>
+		<f:translate key="module.testsuite.show.testrun"
+					 arguments="{1:testrun.title,2:'{testrun.executedComparisons.0}',3:'{testrun.executedComparisons.1}'}"/>
+	</h3>
+	<div class="comparisons">
+		<h4>
+			<f:translate key="module.testsuite.show.newComparisons"
+						 arguments="{1:'{testrun.newComparisons->f:count()}'}"/>
+		</h4>
+		<f:if condition="{testrun.newComparisons}">
+			<ul>
+				<f:for each="{testrun.newComparisons}" as="newComparison">
+					<li>
+						<span class="comparisonTitle">
+							{newComparison->bgm:splitComparisonPath(testrun:testrun,baseUrl:'{settings.phantomcss.baseUrl}',testsRootDir:'{settings.phantomcss.testsRootDir}',part:'url')}
+							{newComparison->bgm:splitComparisonPath(testrun:testrun,baseUrl:'{settings.phantomcss.baseUrl}',testsRootDir:'{settings.phantomcss.testsRootDir}',part:'test')}
+						</span>
+
+						<div class="comparisonImage">
+							<img data-src="{bgm:uri.image(src:'{newComparison}',baseUrl:'{settings.phantomcss.baseUrl}',testsRootDir:'{settings.phantomcss.testsRootDir}')}"
+								 alt="" class="comparisonBaseImage"/>
+						</div>
+					</li>
+				</f:for>
+			</ul>
+		</f:if>
+	</div>
+	<div class="comparisons">
+		<h4>
+			<f:translate key="module.testsuite.show.passedComparisons"
+						 arguments="{1:'{testrun.passedComparisons->f:count()}'}"/>
+		</h4>
+		<f:if condition="{testrun.passedComparisons}">
+			<ul>
+				<f:for each="{testrun.passedComparisons}" as="passedComparison">
+					<li>
+						<span class="comparisonTitle">
+							{passedComparison->bgm:splitComparisonPath(testrun:testrun,baseUrl:'{settings.phantomcss.baseUrl}',testsRootDir:'{settings.phantomcss.testsRootDir}',part:'url')}
+							{passedComparison->bgm:splitComparisonPath(testrun:testrun,baseUrl:'{settings.phantomcss.baseUrl}',testsRootDir:'{settings.phantomcss.testsRootDir}',part:'test')}
+						</span>
+
+						<div class="comparisonImages">
+							<img data-src="{bgm:uri.image(src:'{passedComparison}',baseUrl:'{settings.phantomcss.baseUrl}',testsRootDir:'{settings.phantomcss.testsRootDir}')}"
+								 alt="" class="comparisonBaseImage"/>
+						</div>
+					</li>
+				</f:for>
+			</ul>
+		</f:if>
+	</div>
+	<div class="comparisons">
+		<h4>
+			<f:translate key="module.testsuite.show.failedComparisons"
+						 arguments="{1:'{testrun.failedComparisons->f:count()}'}"/>
+		</h4>
+		<f:if condition="{testrun.failedComparisons}">
+			<ul>
+				<f:for each="{testrun.failedComparisons}" as="failedComparison">
+					<li>
+						<span class="comparisonTitle">
+							{failedComparison->bgm:splitComparisonPath(testrun:testrun,baseUrl:'{settings.phantomcss.baseUrl}',testsRootDir:'{settings.phantomcss.testsRootDir}',part:'url')}
+							{failedComparison->bgm:splitComparisonPath(testrun:testrun,baseUrl:'{settings.phantomcss.baseUrl}',testsRootDir:'{settings.phantomcss.testsRootDir}',part:'test')}
+						</span>
+
+						<div class="comparisonImages">
+							<div class="split-pane vertical-percent">
+								<div class="split-pane-component left-component">
+									<p>Comparison Base</p>
+									<div data-src="{bgm:uri.image(src:'{failedComparison}',baseUrl:'{settings.phantomcss.baseUrl}',testsRootDir:'{settings.phantomcss.testsRootDir}')}"></div>
+								</div>
+								<div class="split-pane-divider divider-vertical"></div>
+								<div class="split-pane-component right-component">
+									<p>Compared with</p>
+									<div data-src="{bgm:uri.image(src:'{failedComparison}',baseUrl:'{settings.phantomcss.baseUrl}',testsRootDir:'{settings.phantomcss.testsRootDir}',type:'diff')}"></div>
+								</div>
+							</div>
+							<img data-src="{bgm:uri.image(src:'{failedComparison}',baseUrl:'{settings.phantomcss.baseUrl}',testsRootDir:'{settings.phantomcss.testsRootDir}',type:'fail')}"
+								 alt="" class="comparisonFailedImage"/>
+							<div class="clear"></div>
+						</div>
+					</li>
+				</f:for>
+			</ul>
+		</f:if>
+	</div>
+	<div class="comparisons">
+		<h4>
+			<f:translate key="module.testsuite.show.timedoutComparisons"
+						 arguments="{1:'{testrun.timedoutComparisons->f:count()}'}"/>
+		</h4>
+		<f:if condition="{testrun.timedoutComparisons}">
+			<ul>
+				<f:for each="{testrun.timedoutComparisons}" as="timedoutComparison">
+					<li>
+						<span class="comparisonTitle">
+							{timedoutComparison->bgm:splitComparisonPath(testrun:testrun,baseUrl:'{settings.phantomcss.baseUrl}',testsRootDir:'{settings.phantomcss.testsRootDir}',part:'url')}
+							{timedoutComparison->bgm:splitComparisonPath(testrun:testrun,baseUrl:'{settings.phantomcss.baseUrl}',testsRootDir:'{settings.phantomcss.testsRootDir}',part:'test')}
+						</span>
+
+						<div class="comparisonImages">
+							<img data-src="{bgm:uri.image(src:'{timedoutComparison}',baseUrl:'{settings.phantomcss.baseUrl}',testsRootDir:'{settings.phantomcss.testsRootDir}')}"
+								 alt="" class="comparisonBaseImage"/>
+						</div>
+					</li>
+				</f:for>
+			</ul>
+		</f:if>
+	</div>
+</f:section>

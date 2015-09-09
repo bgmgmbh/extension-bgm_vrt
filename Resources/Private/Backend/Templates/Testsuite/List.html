@@ -15,8 +15,11 @@
 			<ul>
 				<f:for each="{testsuite.testruns}" as="testrun">
 					<li>
-						<f:translate key="module.testsuite.show.testrun"
+						<f:link.action action="show" controller="Testrun"
+									   arguments="{testsuite:testsuite,testrunTitle:'{testrun.title}'}">
+							<f:translate key="module.testsuite.show.testrun"
 									 arguments="{1:testrun.title,2:'{testrun.executedComparisons.0}',3:'{testrun.executedComparisons.1}',4:'{testrun.newComparisons->f:count()}',5:'{testrun.passedComparisons->f:count()}',6:'{testrun.failedComparisons->f:count()}',7:'{testrun.timedoudComparisons->f:count()}'}"/>
+						</f:link.action>
 					</li>
 				</f:for>
 			</ul>

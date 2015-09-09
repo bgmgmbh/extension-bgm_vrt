@@ -1,0 +1,78 @@
+.tx_bgmvrt .clear {
+	clear: both;
+}
+.tx_bgmvrt .comparisons h4:hover,
+.tx_bgmvrt .comparisons ul li .comparisonTitle:hover {
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+.tx_bgmvrt .comparisons ul,
+.tx_bgmvrt .comparisons ul .comparisonImages {
+	display: none;
+}
+
+.tx_bgmvrt .comparisons ul .comparisonImages img {
+	max-width: 500px;
+	max-height: 500px;
+	margin: 10px;
+	border: 5px solid #eeeeee;
+}
+
+.tx_bgmvrt .split-pane {
+	width: 510px;
+	height: 530px;
+	border: 5px solid #eeeeee;
+	float: left;
+	margin: 10px;
+}
+
+.tx_bgmvrt .split-pane .split-pane-divider {
+	background: #eeeeee;
+}
+
+.tx_bgmvrt .split-pane .divider-vertical {
+	right: 50%;
+	width: 5px;
+}
+
+.tx_bgmvrt .split-pane .split-pane-component {
+	overflow: hidden;
+}
+
+.tx_bgmvrt .split-pane .left-component {
+	right: 50%;
+	margin-right: 5px;
+}
+
+.tx_bgmvrt .split-pane .right-component {
+	width: 50%;
+}
+
+.tx_bgmvrt .split-pane .split-pane-component p {
+	white-space: nowrap;
+	background-color: #eeeeee;
+}
+.tx_bgmvrt .split-pane .split-pane-component div {
+	background-repeat: no-repeat;
+	background-attachment: scroll;
+	background-size: contain;
+	background-position: center top;
+	width: 500px;
+	height: 500px;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	overflow: hidden;
+}
+
+.tx_bgmvrt .split-pane .left-component div {
+	left: 0;
+	right: auto;
+}
+
+.tx_bgmvrt .split-pane .right-component div {
+	left: auto;
+	right: 0;
+}

@@ -44,6 +44,7 @@ if (TYPO3_MODE === 'BE') {
 		'',          // Position
 		array(
 			'Testsuite' => 'list, show',
+			'Testrun' => 'show',
 		),
 		array(
 			'access' => 'user,group',
