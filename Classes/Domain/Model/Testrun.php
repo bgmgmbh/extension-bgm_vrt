@@ -31,6 +31,18 @@ class Testrun extends \BGM\BgmVrt\Domain\Model\AbstractEntity {
 	 * @var array
 	 * @transient
 	 */
+	protected $executedComparisonsCounter;
+
+	/**
+	 * @var bool
+	 * @transient
+	 */
+	protected $collectedExecutedComparisonsCounter = FALSE;
+
+	/**
+	 * @var array
+	 * @transient
+	 */
 	protected $newComparisons;
 
 	/**
@@ -76,6 +88,18 @@ class Testrun extends \BGM\BgmVrt\Domain\Model\AbstractEntity {
 	protected $collectedTimedoutComparisons = FALSE;
 
 	/**
+	 * @var array
+	 * @transient
+	 */
+	protected $casperTimedout;
+
+	/**
+	 * @var bool
+	 * @transient
+	 */
+	protected $collectedCasperTimedout = FALSE;
+
+	/**
 	 * @return string
 	 */
 	public function getTitle() {
@@ -110,7 +134,7 @@ class Testrun extends \BGM\BgmVrt\Domain\Model\AbstractEntity {
 		if (!$this->collectedExecutedComparisons) {
 			$executedComparisons = $this->sshService->getSftpConnection()->get($this->settings['phantomcss']['testsRootDir'] . '/' . $this->getTestsuite()->getTitle() . '/comparisonResults/' . $this->getTitle() . '/executedComparisons.log');
 			if ($executedComparisons) {
-				$this->executedComparisons = \TYPO3\CMS\Core\Utility\GeneralUtility::trimExplode('/', $executedComparisons);
+				$this->executedComparisons = \TYPO3\CMS\Core\Utility\GeneralUtility::trimExplode("\n", $executedComparisons);
 			}
 			$this->collectedExecutedComparisons = TRUE;
 		}
@@ -122,6 +146,27 @@ class Testrun extends \BGM\BgmVrt\Domain\Model\AbstractEntity {
 	 */
 	public function setExecutedComparisons($executedComparisons) {
 		$this->executedComparisons = $executedComparisons;
+	}
+
+	/**
+	 * @return array
+	 */
+	public function getExecutedComparisonsCounter() {
+		if (!$this->collectedExecutedComparisonsCounter) {
+			$executedComparisonsCounter = $this->sshService->getSftpConnection()->get($this->settings['phantomcss']['testsRootDir'] . '/' . $this->getTestsuite()->getTitle() . '/comparisonResults/' . $this->getTitle() . '/executedComparisonsCounter.log');
+			if ($executedComparisonsCounter) {
+				$this->executedComparisonsCounter = \TYPO3\CMS\Core\Utility\GeneralUtility::trimExplode('/', $executedComparisonsCounter);
+			}
+			$this->collectedExecutedComparisonsCounter = TRUE;
+		}
+		return $this->executedComparisonsCounter;
+	}
+
+	/**
+	 * @param array $executedComparisonsCounter
+	 */
+	public function setExecutedComparisonsCounter($executedComparisonsCounter) {
+		$this->executedComparisonsCounter = $executedComparisonsCounter;
 	}
 
 	/**
@@ -154,7 +199,7 @@ class Testrun extends \BGM\BgmVrt\Domain\Model\AbstractEntity {
 			if ($passedComparisons) {
 				$this->passedComparisons = \TYPO3\CMS\Core\Utility\GeneralUtility::trimExplode("\n", $passedComparisons);
 			}
-			$this->collectedNewComparisons = TRUE;
+			$this->collectedPassedComparisons = TRUE;
 		}
 		return $this->passedComparisons;
 	}
@@ -196,7 +241,7 @@ class Testrun extends \BGM\BgmVrt\Domain\Model\AbstractEntity {
 			if ($timedoutComparisons) {
 				$this->timedoutComparisons = \TYPO3\CMS\Core\Utility\GeneralUtility::trimExplode("\n", $timedoutComparisons);
 			}
-			$this->collectedNewComparisons = TRUE;
+			$this->collectedTimedoutComparisons = TRUE;
 		}
 		return $this->timedoutComparisons;
 	}
@@ -206,6 +251,27 @@ class Testrun extends \BGM\BgmVrt\Domain\Model\AbstractEntity {
 	 */
 	public function setTimedoutComparisons($timedoutComparisons) {
 		$this->timedoutComparisons = $timedoutComparisons;
+	}
+
+	/**
+	 * @return array
+	 */
+	public function getCasperTimedout() {
+		if (!$this->collectedCasperTimedout) {
+			$casperTimedout = $this->sshService->getSftpConnection()->get($this->settings['phantomcss']['testsRootDir'] . '/' . $this->getTestsuite()->getTitle() . '/comparisonResults/' . $this->getTitle() . '/casperTimedout.log');
+			if ($casperTimedout) {
+				$this->casperTimedout = \TYPO3\CMS\Core\Utility\GeneralUtility::trimExplode("\n", $casperTimedout);
+			}
+			$this->collectedCasperTimedout = TRUE;
+		}
+		return $this->casperTimedout;
+	}
+
+	/**
+	 * @param array $casperTimedout
+	 */
+	public function setCasperTimedout($casperTimedout) {
+		$this->casperTimedout = $casperTimedout;
 	}
 	
 }

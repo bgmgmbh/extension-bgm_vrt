@@ -27,9 +27,7 @@ class TestsuiteController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionContro
 	 */
 	public function initializeAction() {
 		if ($this->settings['debug']) {
-			/** @var \TYPO3\CMS\Core\Log\LogManager $loggerManager */
-			$loggerManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\Log\\LogManager');
-			$this->debugLogger = $loggerManager->getLogger('syncserver');
+			$this->debugLogger = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Log\LogManager::class)->getLogger(__CLASS__);
 		}
 	}
 

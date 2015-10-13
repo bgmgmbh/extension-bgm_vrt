@@ -64,15 +64,17 @@ class Testsuite extends \BGM\BgmVrt\Domain\Model\AbstractEntity {
 	public function getTestruns() {
 		if (!$this->collectedTestruns) {
 			$testruns = $this->sshService->getSftpConnection()->nlist($this->settings['phantomcss']['testsRootDir'] . '/' . $this->getTitle() . '/comparisonResults');
-			unset($testruns[array_search('..', $testruns)]);
-			unset($testruns[array_search('.', $testruns)]);
-			sort($testruns);
-			foreach ($testruns as $testrun) {
-				/** @var \BGM\BgmVrt\Domain\Model\Testrun $testrunObject */
-				$testrunObject = $this->objectManager->get('BGM\\BgmVrt\\Domain\\Model\\Testrun');
-				$testrunObject->setTitle($testrun);
-				$testrunObject->setTestsuite($this);
-				$this->addTestruns($testrunObject);
+			if(is_array($testruns) && count($testruns) > 0){
+				unset($testruns[array_search('..', $testruns)]);
+				unset($testruns[array_search('.', $testruns)]);
+				sort($testruns);
+				foreach ($testruns as $testrun) {
+					/** @var \BGM\BgmVrt\Domain\Model\Testrun $testrunObject */
+					$testrunObject = $this->objectManager->get('BGM\\BgmVrt\\Domain\\Model\\Testrun');
+					$testrunObject->setTitle($testrun);
+					$testrunObject->setTestsuite($this);
+					$this->addTestruns($testrunObject);
+				}
 			}
 			$this->collectedTestruns = TRUE;
 		}
