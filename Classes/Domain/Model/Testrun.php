@@ -100,6 +100,18 @@ class Testrun extends \BGM\BgmVrt\Domain\Model\AbstractEntity {
 	protected $collectedCasperTimedout = FALSE;
 
 	/**
+	 * @var array
+	 * @transient
+	 */
+	protected $screenshotCaptureFailed;
+
+	/**
+	 * @var bool
+	 * @transient
+	 */
+	protected $collectedScreenshotCaptureFailed = FALSE;
+
+	/**
 	 * @return string
 	 */
 	public function getTitle() {
@@ -272,6 +284,27 @@ class Testrun extends \BGM\BgmVrt\Domain\Model\AbstractEntity {
 	 */
 	public function setCasperTimedout($casperTimedout) {
 		$this->casperTimedout = $casperTimedout;
+	}
+
+	/**
+	 * @return array
+	 */
+	public function getScreenshotCaptureFailed() {
+		if (!$this->collectedScreenshotCaptureFailed) {
+			$screenshotCaptureFailed = $this->sshService->getSftpConnection()->get($this->settings['phantomcss']['testsRootDir'] . '/' . $this->getTestsuite()->getTitle() . '/comparisonResults/' . $this->getTitle() . '/screenshotCaptureFailed.log');
+			if ($screenshotCaptureFailed) {
+				$this->screenshotCaptureFailed = \TYPO3\CMS\Core\Utility\GeneralUtility::trimExplode("\n", $screenshotCaptureFailed);
+			}
+			$this->collectedScreenshotCaptureFailed = TRUE;
+		}
+		return $this->screenshotCaptureFailed;
+	}
+
+	/**
+	 * @param array $screenshotCaptureFailed
+	 */
+	public function setScreenshotCaptureFailed($screenshotCaptureFailed) {
+		$this->screenshotCaptureFailed = $screenshotCaptureFailed;
 	}
 	
 }

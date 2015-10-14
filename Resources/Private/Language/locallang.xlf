@@ -11,7 +11,7 @@
 				<source>Testsuites</source>
 			</trans-unit>
 			<trans-unit id="module.testsuite.list.testrun" xml:space="preserve">
-				<source>%1$s (Executed: %2$d of %3$d URLs, New: %4$d, Passed: %5$d, Failed: %6$d, Timedout: %7$d, Timedout (casper): %8$d)</source>
+				<source>%1$s (Executed: %2$d of %3$d URLs, New: %4$d, Passed: %5$d, Failed: %6$d, Timedout: %7$d, Timedout (casper): %8$d, Screenshot capture failed: %9$d)</source>
 			</trans-unit>
 			<trans-unit id="module.testsuite.show.title" xml:space="preserve">
 				<source>Testsuite "%1$s"</source>
@@ -36,6 +36,9 @@
 			</trans-unit>
 			<trans-unit id="module.testsuite.show.casperTimedout" xml:space="preserve">
 				<source>Timedout (casper): %1$d</source>
+			</trans-unit>
+			<trans-unit id="module.testsuite.show.screenshotCaptureFailed" xml:space="preserve">
+				<source>Screenshot capture failed: %1$d</source>
 			</trans-unit>
 		</body>
 	</file>

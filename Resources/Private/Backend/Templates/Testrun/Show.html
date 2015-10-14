@@ -139,4 +139,22 @@
 			</ul>
 		</f:if>
 	</div>
+	<div class="comparisons">
+		<h4>
+			<f:translate key="module.testsuite.show.screenshotCaptureFailed"
+						 arguments="{1:'{testrun.screenshotCaptureFailed->f:count()}'}"/>
+		</h4>
+		<f:if condition="{testrun.screenshotCaptureFailed}">
+			<ul>
+				<f:for each="{testrun.screenshotCaptureFailed}" as="screenshotCaptureFailed">
+					<li>
+						<f:link.external uri="{screenshotCaptureFailed->bgm:splitComparisonPath(testrun:testrun,testsRootDir:'{settings.phantomcss.testsRootDir}',part:'url')}" target="_blank">
+							{screenshotCaptureFailed->bgm:splitComparisonPath(testrun:testrun,testsRootDir:'{settings.phantomcss.testsRootDir}',part:'url')}/{screenshotCaptureFailed->bgm:splitComparisonPath(testrun:testrun,testsRootDir:'{settings.phantomcss.testsRootDir}',part:'test')} |
+							{screenshotCaptureFailed->bgm:splitComparisonPath(testrun:testrun,testsRootDir:'{settings.phantomcss.testsRootDir}',part:'moreInfo')}
+						</f:link.external>
+					</li>
+				</f:for>
+			</ul>
+		</f:if>
+	</div>
 </f:section>
