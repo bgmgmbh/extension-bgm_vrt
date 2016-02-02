@@ -23,7 +23,7 @@ class SplitComparisonPathViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\Abs
             $path = $this->renderChildren();
         }
 
-        list($path, $moreInfo) = \TYPO3\CMS\Core\Utility\GeneralUtility::trimExplode('|', $path);
+        list($path, $moreInfo, $accepted) = \TYPO3\CMS\Core\Utility\GeneralUtility::trimExplode('|', $path);
 
         $path = str_replace($testsRootDir . '/' . $testrun->getTestsuite()->getIdentifier() . '/comparisonResults/' . $testrun->getTitle(),
             '', $path);
@@ -40,6 +40,8 @@ class SplitComparisonPathViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\Abs
             return $test;
         } elseif ($part === 'moreInfo') {
             return $moreInfo;
+        } elseif ($part === 'accepted') {
+            return $accepted;
         }
         return '';
     }

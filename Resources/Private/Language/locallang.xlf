@@ -31,6 +31,18 @@
 			<trans-unit id="module.testsuite.show.failedComparisons" xml:space="preserve">
 				<source>Failed comparisons: %1$d</source>
 			</trans-unit>
+			<trans-unit id="module.testsuite.show.failedComparisons.accepted" xml:space="preserve">
+				<source>Accept changes?</source>
+			</trans-unit>
+			<trans-unit id="module.testsuite.show.failedComparisons.accepted.yes" xml:space="preserve">
+				<source>Yes</source>
+			</trans-unit>
+			<trans-unit id="module.testsuite.show.failedComparisons.accepted.no" xml:space="preserve">
+				<source>No</source>
+			</trans-unit>
+			<trans-unit id="module.testsuite.show.failedComparisons.accepted.maybe" xml:space="preserve">
+				<source>Maybe</source>
+			</trans-unit>
 			<trans-unit id="module.testsuite.show.timedoutComparisons" xml:space="preserve">
 				<source>Timedout comparisons: %1$d</source>
 			</trans-unit>

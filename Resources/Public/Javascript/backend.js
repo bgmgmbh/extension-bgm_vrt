@@ -28,6 +28,8 @@
 			$(this).parent('.comparisons').find('ul').toggle();
 		});
 		$('.comparisonTitle').on('click', function () {
+			$(this).parent('li').find('.comparisonDetails').toggle();
+
 			$(this).parent('li').find('.comparisonImages img').each(function () {
 				if ($(this).attr('src') != $(this).attr('data-src')) {
 					$(this).attr('src', $(this).attr('data-src'));
@@ -38,7 +40,6 @@
 					$(this).css('backgroundImage', 'url(' + $(this).attr('data-src') + ')');
 				}
 			});
-			$(this).parent('li').find('.comparisonImages').toggle();
 
 			if($(this).parent('li').find('.comparisonImages .split-pane .comparisonBaseImage').first().css('background-size') == 'contain'){
 				$(this).parent('li').find('.comparisonImages .split-pane .comparisonBaseImage').first().getBackgroundSize($(this), function (element, size) {

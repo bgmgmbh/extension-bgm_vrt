@@ -8,8 +8,28 @@
 	cursor: pointer;
 }
 
+.tx_bgmvrt .comparisons ul {
+	list-style-type: none;
+}
+
+.tx_bgmvrt .comparisons ul li {
+	padding: 10px;
+}
+
+.tx_bgmvrt .comparisons ul li.acceptedComparisons_yes {
+	background-color: rgba(0, 128, 0, 0.5);
+}
+
+.tx_bgmvrt .comparisons ul li.acceptedComparisons_no {
+	background-color: rgba(255, 0, 0, 0.5);
+}
+
+.tx_bgmvrt .comparisons ul li.acceptedComparisons_maybe {
+	background-color: rgba(255, 255, 0, 0.5);
+}
+
 .tx_bgmvrt .comparisons ul,
-.tx_bgmvrt .comparisons ul .comparisonImages {
+.tx_bgmvrt .comparisons ul .comparisonDetails {
 	display: none;
 }
 
