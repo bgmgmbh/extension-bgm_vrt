@@ -16,6 +16,10 @@
 	padding: 10px;
 }
 
+.tx_bgmvrt .comparisons ul li:nth-child(odd) {
+	background-color: rgba(237, 237, 237, 0.5);
+}
+
 .tx_bgmvrt .comparisons ul li.acceptedComparisons_yes {
 	background-color: rgba(0, 128, 0, 0.5);
 }
