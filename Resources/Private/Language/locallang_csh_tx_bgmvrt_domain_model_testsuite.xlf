@@ -10,6 +10,9 @@
 			<trans-unit id="title.description" xml:space="preserve">
 				<source>title</source>
 			</trans-unit>
+			<trans-unit id="identifier.description" xml:space="preserve">
+				<source>identifier</source>
+			</trans-unit>
 			<trans-unit id="command.description" xml:space="preserve">
 				<source>command</source>
 			</trans-unit>

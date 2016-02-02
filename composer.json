@@ -1,11 +1,22 @@
 {
-  "autoload": {
-    "psr-4": {
-      "BGM\\BgmVrt\\": "Classes/",
-      "phpseclib\\": "Resources/Lib/phpseclib/"
+  "name": "bgmgmbh/bgm_vrt",
+  "description": "Visual regression testing with PhantomCSS",
+  "type": "typo3-cms-extension",
+  "keywords": [
+    "typo3",
+    "extension",
+    "testing",
+    "regression"
+  ],
+  "authors": [
+    {
+      "name": "bgm websolutions GmbH & Co. KG (Marco Huber)",
+      "homepage": "http://typo3.bgm-gmbh.de",
+      "company": "bgm websolutions GmbH & Co. KG"
     }
-  },
-  "autoload-dev": {
+  ],
+  "minimum-stability": "dev",
+  "autoload": {
     "psr-4": {
       "BGM\\BgmVrt\\": "Classes/",
       "phpseclib\\": "Resources/Lib/phpseclib/"

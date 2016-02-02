@@ -5,7 +5,7 @@
 
 <f:section name="content">
 	<h2>
-		<f:translate key="module.testsuite.show.title" arguments="{1:testsuite.title}"/>
+		<f:translate key="module.testsuite.show.title" arguments="{1:testsuite.title, 2:testsuite.identifier}"/>
 	</h2>
 	<p>{testsuite.command}</p>
 	<f:for each="{testsuite.testruns}" as="testrun">
@@ -13,7 +13,7 @@
 			<f:link.action action="show" controller="Testrun"
 						   arguments="{testsuite:testsuite,testrunTitle:'{testrun.title}'}">
 				<f:translate key="module.testsuite.show.testrun"
-						 arguments="{1:testrun.title,2:'{testrun.executedComparisonsCounter.0}',3:'{testrun.executedComparisonsCounter.1}'}"/>
+							 arguments="{1:testrun.title,2:'{testrun.executedComparisonsCounter.0}',3:'{testrun.executedComparisonsCounter.1}'}"/>
 			</f:link.action>
 		</h3>
 		<ul>

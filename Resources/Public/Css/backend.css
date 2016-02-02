@@ -1,6 +1,7 @@
 .tx_bgmvrt .clear {
 	clear: both;
 }
+
 .tx_bgmvrt .comparisons h4:hover,
 .tx_bgmvrt .comparisons ul li .comparisonTitle:hover {
 	text-decoration: underline;

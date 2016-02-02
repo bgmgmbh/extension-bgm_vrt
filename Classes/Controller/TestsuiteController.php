@@ -1,56 +1,63 @@
 <?php
 namespace BGM\BgmVrt\Controller;
 
-class TestsuiteController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController {
+/**
+ * Class TestsuiteController
+ *
+ * @package BGM\BgmVrt\Controller
+ */
+class TestsuiteController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
+{
 
-	/**
-	 * @var \BGM\BgmVrt\Domain\Repository\TestsuiteRepository
-	 * @inject
-	 */
-	protected $testsuiteRepository;
+    /**
+     * @var \BGM\BgmVrt\Domain\Repository\TestsuiteRepository
+     * @inject
+     */
+    protected $testsuiteRepository;
 
-	/**
-	 * @var \TYPO3\CMS\Extbase\Persistence\PersistenceManagerInterface
-	 * @inject
-	 */
-	protected $persistenceManager;
+    /**
+     * @var \TYPO3\CMS\Extbase\Persistence\PersistenceManagerInterface
+     * @inject
+     */
+    protected $persistenceManager;
 
-	/**
-	 * @var \TYPO3\CMS\Core\Log\Logger
-	 */
-	protected $debugLogger;
+    /**
+     * @var \TYPO3\CMS\Core\Log\Logger
+     */
+    protected $debugLogger;
 
-	/**
-	 * Initialize action
+    /**
+     * Initialize action
 	 *
-	 * Executed before the requested action is executed.
-	 */
-	public function initializeAction() {
-		if ($this->settings['debug']) {
-			$this->debugLogger = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Log\LogManager::class)->getLogger(__CLASS__);
-		}
-	}
+     * Executed before the requested action is executed.
+     */
+    public function initializeAction()
+    {
+        if ($this->settings['debug']) {
+            $this->debugLogger = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Log\LogManager::class)->getLogger(__CLASS__);
+        }
+    }
 
-	/**
-	 * List action
+    /**
+     * List action
 	 *
-	 * Lists all testsuites.
-	 */
-	public function listAction() {
-		$testsuites = $this->testsuiteRepository->findAll();
-		$this->view->assign('testsuites', $testsuites);
-	}
+     * Lists all testsuites.
+     */
+    public function listAction()
+    {
+        $testsuites = $this->testsuiteRepository->findAll();
+        $this->view->assign('testsuites', $testsuites);
+    }
 
-	/**
-	 * Show action
+    /**
+     * Show action
 	 *
-	 * Shows the details for one testsuite.
-	 *
-	 * @param \BGM\BgmVrt\Domain\Model\Testsuite $testsuite
-	 */
-	public function showAction(\BGM\BgmVrt\Domain\Model\Testsuite $testsuite) {
-		$this->view->assign('testsuite', $testsuite);
-	}
+     * Shows the details for one testsuite.
+     *
+     * @param \BGM\BgmVrt\Domain\Model\Testsuite $testsuite
+     */
+    public function showAction(\BGM\BgmVrt\Domain\Model\Testsuite $testsuite)
+    {
+        $this->view->assign('testsuite', $testsuite);
+    }
 }
-
-?>

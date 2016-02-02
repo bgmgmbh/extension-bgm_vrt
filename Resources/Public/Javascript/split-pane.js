@@ -1,26 +1,26 @@
 /*!
 
-Split Pane v0.5.1
+ Split Pane v0.5.1
 
-Copyright (c) 2014 Simon Hagström
+ Copyright (c) 2014 Simon Hagström
 
-Released under the MIT license
-https://raw.github.com/shagstrom/split-pane/master/LICENSE
+ Released under the MIT license
+ https://raw.github.com/shagstrom/split-pane/master/LICENSE
 
-*/
-(function($) {
-	
-	$.fn.splitPane = function() {
+ */
+(function ($) {
+
+	$.fn.splitPane = function () {
 		var $splitPanes = this;
 		$splitPanes.each(setMinHeightAndMinWidth);
 		$splitPanes.append('<div class="split-pane-resize-shim">');
 		var eventType = ('ontouchstart' in document) ? 'touchstart' : 'mousedown';
 		$splitPanes.children('.split-pane-divider').html('<div class="split-pane-divider-inner"></div>');
 		$splitPanes.children('.split-pane-divider').bind(eventType, mousedownHandler);
-		setTimeout(function() {
+		setTimeout(function () {
 			// Doing this later because of an issue with Chrome (v23.0.1271.64) returning split-pane width = 0
 			// and triggering multiple resize events when page is being opened from an <a target="_blank"> .
-			$splitPanes.each(function() {
+			$splitPanes.each(function () {
 				$(this).bind('_splitpaneparentresize', createParentresizeHandler($(this)));
 			});
 			$(window).trigger('resize');
@@ -34,10 +34,10 @@ https://raw.github.com/shagstrom/split-pane/master/LICENSE
 	 * The event will NOT propagate to grandchildren.
 	 */
 	$.event.special._splitpaneparentresize = {
-		setup: function(data, namespaces) {
+		setup: function (data, namespaces) {
 			var element = this,
 				parent = $(this).parent().closest('.split-pane')[0] || window;
-			$(this).data(SPLITPANERESIZE_HANDLER, function(event) {
+			$(this).data(SPLITPANERESIZE_HANDLER, function (event) {
 				var target = event.target === document ? window : event.target;
 				if (target === parent) {
 					event.type = "_splitpaneparentresize";
@@ -48,7 +48,7 @@ https://raw.github.com/shagstrom/split-pane/master/LICENSE
 			});
 			$(parent).bind('resize', $(this).data(SPLITPANERESIZE_HANDLER));
 		},
-		teardown: function(namespaces) {
+		teardown: function (namespaces) {
 			var parent = $(this).parent().closest('.split-pane')[0] || window;
 			$(parent).unbind('resize', $(this).data(SPLITPANERESIZE_HANDLER));
 			$(this).removeData(SPLITPANERESIZE_HANDLER);
@@ -71,7 +71,7 @@ https://raw.github.com/shagstrom/split-pane/master/LICENSE
 		event.preventDefault();
 		var isTouchEvent = event.type.match(/^touch/),
 			moveEvent = isTouchEvent ? 'touchmove' : 'mousemove',
-			endEvent = isTouchEvent? 'touchend' : 'mouseup',
+			endEvent = isTouchEvent ? 'touchend' : 'mouseup',
 			$divider = $(this),
 			$splitPane = $divider.parent(),
 			$resizeShim = $divider.siblings('.split-pane-resize-shim');
@@ -82,7 +82,7 @@ https://raw.github.com/shagstrom/split-pane/master/LICENSE
 		}
 		var moveEventHandler = createMousemove($splitPane, pageXof(event), pageYof(event));
 		$(document).on(moveEvent, moveEventHandler);
-		$(document).one(endEvent, function(event) {
+		$(document).one(endEvent, function (event) {
 			$(document).unbind(moveEvent, moveEventHandler);
 			$divider.removeClass('dragged touch');
 			$resizeShim.hide();
@@ -96,7 +96,7 @@ https://raw.github.com/shagstrom/split-pane/master/LICENSE
 			lastComponent = $splitPane.children('.split-pane-component:last')[0];
 		if ($splitPane.is('.fixed-top')) {
 			var lastComponentMinHeight = minHeight(lastComponent);
-			return function(event) {
+			return function (event) {
 				var maxfirstComponentHeight = splitPane.offsetHeight - lastComponentMinHeight - divider.offsetHeight;
 				if (firstComponent.offsetHeight > maxfirstComponentHeight) {
 					setTop(firstComponent, divider, lastComponent, maxfirstComponentHeight + 'px');
@@ -105,7 +105,7 @@ https://raw.github.com/shagstrom/split-pane/master/LICENSE
 			};
 		} else if ($splitPane.is('.fixed-bottom')) {
 			var firstComponentMinHeight = minHeight(firstComponent);
-			return function(event) {
+			return function (event) {
 				var maxLastComponentHeight = splitPane.offsetHeight - firstComponentMinHeight - divider.offsetHeight;
 				if (lastComponent.offsetHeight > maxLastComponentHeight) {
 					setBottom(firstComponent, divider, lastComponent, maxLastComponentHeight + 'px')
@@ -115,7 +115,7 @@ https://raw.github.com/shagstrom/split-pane/master/LICENSE
 		} else if ($splitPane.is('.horizontal-percent')) {
 			var lastComponentMinHeight = minHeight(lastComponent),
 				firstComponentMinHeight = minHeight(firstComponent);
-			return function(event) {
+			return function (event) {
 				var maxLastComponentHeight = splitPane.offsetHeight - firstComponentMinHeight - divider.offsetHeight;
 				if (lastComponent.offsetHeight > maxLastComponentHeight) {
 					setBottom(firstComponent, divider, lastComponent, (maxLastComponentHeight / splitPane.offsetHeight * 100) + '%');
@@ -128,7 +128,7 @@ https://raw.github.com/shagstrom/split-pane/master/LICENSE
 			};
 		} else if ($splitPane.is('.fixed-left')) {
 			var lastComponentMinWidth = minWidth(lastComponent);
-			return function(event) {
+			return function (event) {
 				var maxFirstComponentWidth = splitPane.offsetWidth - lastComponentMinWidth - divider.offsetWidth;
 				if (firstComponent.offsetWidth > maxFirstComponentWidth) {
 					setLeft(firstComponent, divider, lastComponent, maxFirstComponentWidth + 'px');
@@ -137,7 +137,7 @@ https://raw.github.com/shagstrom/split-pane/master/LICENSE
 			};
 		} else if ($splitPane.is('.fixed-right')) {
 			var firstComponentMinWidth = minWidth(firstComponent);
-			return function(event) {
+			return function (event) {
 				var maxLastComponentWidth = splitPane.offsetWidth - firstComponentMinWidth - divider.offsetWidth;
 				if (lastComponent.offsetWidth > maxLastComponentWidth) {
 					setRight(firstComponent, divider, lastComponent, maxLastComponentWidth + 'px');
@@ -147,7 +147,7 @@ https://raw.github.com/shagstrom/split-pane/master/LICENSE
 		} else if ($splitPane.is('.vertical-percent')) {
 			var lastComponentMinWidth = minWidth(lastComponent),
 				firstComponentMinWidth = minWidth(firstComponent);
-			return function(event) {
+			return function (event) {
 				var maxLastComponentWidth = splitPane.offsetWidth - firstComponentMinWidth - divider.offsetWidth;
 				if (lastComponent.offsetWidth > maxLastComponentWidth) {
 					setRight(firstComponent, divider, lastComponent, (maxLastComponentWidth / splitPane.offsetWidth * 100) + '%');
@@ -167,10 +167,10 @@ https://raw.github.com/shagstrom/split-pane/master/LICENSE
 			divider = $splitPane.children('.split-pane-divider')[0],
 			lastComponent = $splitPane.children('.split-pane-component:last')[0];
 		if ($splitPane.is('.fixed-top')) {
-			var firstComponentMinHeight =  minHeight(firstComponent),
+			var firstComponentMinHeight = minHeight(firstComponent),
 				maxFirstComponentHeight = splitPane.offsetHeight - minHeight(lastComponent) - divider.offsetHeight,
 				topOffset = divider.offsetTop - pageY;
-			return function(event) {
+			return function (event) {
 				event.preventDefault();
 				var top = Math.min(Math.max(firstComponentMinHeight, topOffset + pageYof(event)), maxFirstComponentHeight);
 				setTop(firstComponent, divider, lastComponent, top + 'px');
@@ -180,7 +180,7 @@ https://raw.github.com/shagstrom/split-pane/master/LICENSE
 			var lastComponentMinHeight = minHeight(lastComponent),
 				maxLastComponentHeight = splitPane.offsetHeight - minHeight(firstComponent) - divider.offsetHeight,
 				bottomOffset = lastComponent.offsetHeight + pageY;
-			return function(event) {
+			return function (event) {
 				event.preventDefault();
 				var bottom = Math.min(Math.max(lastComponentMinHeight, bottomOffset - pageYof(event)), maxLastComponentHeight);
 				setBottom(firstComponent, divider, lastComponent, bottom + 'px');
@@ -191,7 +191,7 @@ https://raw.github.com/shagstrom/split-pane/master/LICENSE
 				lastComponentMinHeight = minHeight(lastComponent),
 				maxLastComponentHeight = splitPaneHeight - minHeight(firstComponent) - divider.offsetHeight,
 				bottomOffset = lastComponent.offsetHeight + pageY;
-			return function(event) {
+			return function (event) {
 				event.preventDefault();
 				var bottom = Math.min(Math.max(lastComponentMinHeight, bottomOffset - pageYof(event)), maxLastComponentHeight);
 				setBottom(firstComponent, divider, lastComponent, (bottom / splitPaneHeight * 100) + '%');
@@ -201,7 +201,7 @@ https://raw.github.com/shagstrom/split-pane/master/LICENSE
 			var firstComponentMinWidth = minWidth(firstComponent),
 				maxFirstComponentWidth = splitPane.offsetWidth - minWidth(lastComponent) - divider.offsetWidth,
 				leftOffset = divider.offsetLeft - pageX;
-			return function(event) {
+			return function (event) {
 				event.preventDefault();
 				var left = Math.min(Math.max(firstComponentMinWidth, leftOffset + pageXof(event)), maxFirstComponentWidth);
 				setLeft(firstComponent, divider, lastComponent, left + 'px')
@@ -211,7 +211,7 @@ https://raw.github.com/shagstrom/split-pane/master/LICENSE
 			var lastComponentMinWidth = minWidth(lastComponent),
 				maxLastComponentWidth = splitPane.offsetWidth - minWidth(firstComponent) - divider.offsetWidth,
 				rightOffset = lastComponent.offsetWidth + pageX;
-			return function(event) {
+			return function (event) {
 				event.preventDefault();
 				var right = Math.min(Math.max(lastComponentMinWidth, rightOffset - pageXof(event)), maxLastComponentWidth);
 				setRight(firstComponent, divider, lastComponent, right + 'px');
@@ -222,7 +222,7 @@ https://raw.github.com/shagstrom/split-pane/master/LICENSE
 				lastComponentMinWidth = minWidth(lastComponent),
 				maxLastComponentWidth = splitPaneWidth - minWidth(firstComponent) - divider.offsetWidth,
 				rightOffset = lastComponent.offsetWidth + pageX;
-			return function(event) {
+			return function (event) {
 				event.preventDefault();
 				var right = Math.min(Math.max(lastComponentMinWidth, rightOffset - pageXof(event)), maxLastComponentWidth);
 				setRight(firstComponent, divider, lastComponent, (right / splitPaneWidth * 100) + '%');
@@ -271,4 +271,4 @@ https://raw.github.com/shagstrom/split-pane/master/LICENSE
 		lastComponent.style.width = right;
 	}
 
-})(jQuery);
+})(TYPO3.jQuery);

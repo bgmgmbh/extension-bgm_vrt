@@ -10,6 +10,9 @@
 			<trans-unit id="tx_bgmvrt_domain_model_testsuite.title" xml:space="preserve">
 				<source>title</source>
 			</trans-unit>
+			<trans-unit id="tx_bgmvrt_domain_model_testsuite.identifier" xml:space="preserve">
+				<source>identifier</source>
+			</trans-unit>
 			<trans-unit id="tx_bgmvrt_domain_model_testsuite.command" xml:space="preserve">
 				<source>command</source>
 			</trans-unit>

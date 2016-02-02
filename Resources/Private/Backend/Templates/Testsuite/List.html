@@ -9,7 +9,8 @@
 	</h2>
 	<f:for each="{testsuites}" as="testsuite">
 		<h3>
-			<f:link.action action="show" arguments="{testsuite:testsuite}">{testsuite.title}</f:link.action>
+			<f:link.action action="show" arguments="{testsuite:testsuite}">{testsuite.title} ({testsuite.identifier})
+			</f:link.action>
 		</h3>
 		<f:if condition="{testsuite.testruns}">
 			<ul>
@@ -18,7 +19,7 @@
 						<f:link.action action="show" controller="Testrun"
 									   arguments="{testsuite:testsuite,testrunTitle:'{testrun.title}'}">
 							<f:translate key="module.testsuite.list.testrun"
-									 arguments="{1:testrun.title,2:'{testrun.executedComparisonsCounter.0}',3:'{testrun.executedComparisonsCounter.1}',4:'{testrun.newComparisons->f:count()}',5:'{testrun.passedComparisons->f:count()}',6:'{testrun.failedComparisons->f:count()}',7:'{testrun.timedoudComparisons->f:count()}',8:'{testrun.casperTimedout->f:count()}',9:'{testrun.screenshotCaptureFailed->f:count()}'}"/>
+										 arguments="{1:testrun.title,2:'{testrun.executedComparisonsCounter.0}',3:'{testrun.executedComparisonsCounter.1}',4:'{testrun.newComparisons->f:count()}',5:'{testrun.passedComparisons->f:count()}',6:'{testrun.failedComparisons->f:count()}',7:'{testrun.timedoudComparisons->f:count()}',8:'{testrun.casperTimedout->f:count()}',9:'{testrun.screenshotCaptureFailed->f:count()}'}"/>
 						</f:link.action>
 					</li>
 				</f:for>
